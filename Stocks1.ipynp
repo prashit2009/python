@@ -1,0 +1,23 @@
+df_yahoo=yf.download(['INFY.NS','TCS.NS','WIPRO.NS','ASIANPAINT.BO'],start='2023-01-15',end='2023-02-13',progress = False)
+# Extract the stock price from 15th Jan 2023 to 13th Feb 2023 of the four stocks listed.
+
+price=df_yahoo['Adj Close']
+#Captures the price of the stock based on the [Adj Close] i.e. the lost closed price of the stock
+rets=price.pct_change()
+corr=rets.corr
+%matplotlib inline  # Gets matplot inline to prepare the plot
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Compute correlation matrix
+corr = rets.corr()
+
+# Set up figure
+fig, ax = plt.subplots(figsize=(10, 8))
+
+# Generate heatmap with colorbar
+sns.heatmap(corr, cmap='coolwarm', annot=True, ax=ax)
+
+# Set plot title
+ax.set_title('Correlation Matrix')
