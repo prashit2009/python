@@ -1,0 +1,22 @@
+#Code helps you to download the video from youtube in the highest format
+url='https://youtu.be/a4MPFwegn6M'
+
+video=YouTube(url)
+stream=video.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+output_directory=r"C:\Users\prash\Downloads\Items to Sell"
+stream.download(output_path=output_directory)
+
+
+#from ChatGPT to import Video
+from pytube import YouTube
+
+# Paste the YouTube URL here
+url = 'https://www.youtube.com/watch?v=xxxxxxxxxxx'
+
+# Create a YouTube object and get the highest quality stream
+yt = YouTube(url)
+stream = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+
+# Download the stream to the specified output directory
+output_directory = "C:/Users/prash/Downloads/Items to Sell"
+stream.download(output_path=output_directory)
