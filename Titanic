@@ -1,0 +1,8 @@
+import pandas as pd
+from pandas import Series,DataFrame
+
+filepath=r"C:\Users\prash\Downloads\titanic\train.csv"
+
+
+titanic_df=pd.read_csv(filepath)
+titanic_df.head()
